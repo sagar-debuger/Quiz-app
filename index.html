@@ -3,34 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz App </title>
+    <title>Quiz App</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome Icons for Dark Mode Moon -->
     <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
     <div class="quizContainer">
-        <h1 class="heading">Quiz </h1>
-        <div class="counterqn"> 1/10 </div>
-        <button id="darkMode"><i class="fa-solid fa-moon"></i></button>
-        <div class="questionss"> What is 2 + 2 = ? </div>
-        <div class="optionss">
-            <div> 2</div>
-            <div>3</div>
-            <div>4</div>
-            <div>5</div>
+        
+        <!-- 1. MAIN/WELCOME SCREEN -->
+        <section id="UsernameScreen" class="screen active">
+            <h1 class="welcome">Welcome to Quiz</h1>
+            <p class="para">I hope you are doing well. Let's play a quiz!</p>
+
+            <label for="playerName" id="playerlabel">Enter Name-</label>
+            <input 
+                type="text"
+                id="playerName"
+                placeholder="Please Enter Name">
+            <button id="playQuiz">Play Quiz</button>
+        </section>
+
+        <!-- 2. QUIZ QUESTION SCREEN -->
+        <section id="quizScreen" class="screen">
+            <h1 class="heading">Quiz</h1>
+            <div class="counterqn">1/10</div>
+            <button id="darkMode"><i class="fa-solid fa-moon"></i></button>
+            
+            <!-- Dynamic Content Fields populated by JavaScript -->
+            <div class="questionss">What is 2 + 2 = ?</div>
+            <div class="optionss">
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
             </div>
-        <div class="navigation">
-            <button id="backwardbtn"> Backward</button>
-            <button id="forwardbtn"> Forward</button>
-            <button id="submit">submit</button>
-        </div>
-        <div class="result"></div>
+            
+            <div class="navigation">
+                <button id="backwardbtn">Backward</button>
+                <button id="forwardbtn">Forward</button>
+                <button id="submit">Submit</button>
+            </div>
+            <div class="result"></div>
+        </section>
+
+        <!-- 3. LEADERBOARD SCREEN -->
+        <section id="leaderboardScreen" class="screen">
+            <h1 class="leaderboard">🏆 Leaderboard</h1>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Name</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <!-- ID matches your script file perfectly to push scores inside -->
+                <tbody id="leaderBoardrow"></tbody>
+            </table>
+            
+            <button id="restartBtn">Restart</button>
+        </section>
         
     </div>
-    
 
+    <!-- JavaScript script path link connection -->
     <script src="script.js"></script>
 </body>
 </html>
